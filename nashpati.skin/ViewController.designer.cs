@@ -12,9 +12,15 @@ namespace nashpati.skin
 	[Register ("ViewController")]
 	partial class ViewController
 	{
+		[Outlet]
+		AVKit.AVPlayerView PlayerView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (PlayerView != null) {
+				PlayerView.Dispose ();
+				PlayerView = null;
+			}
 		}
 	}
 }

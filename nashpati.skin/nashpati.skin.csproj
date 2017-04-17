@@ -81,5 +81,42 @@
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\I\ModuleCache\Session.modulevalidation" />
+    <BundleResource Include="Resources\I\nashpati.skin\info.plist" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb-shm" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb-wal" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-cmp" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-dir" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-file" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-moduleurl" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-res" />
+    <BundleResource Include="Resources\I\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-sym" />
+    <BundleResource Include="Resources\lund\ModuleCache\Session.modulevalidation" />
+    <BundleResource Include="Resources\lund\nashpati.skin\info.plist" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb-shm" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb-wal" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-cmp" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-dir" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-file" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-moduleurl" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-res" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-i386\nashpati.skin.xcindex\db.xcindexdb.strings-sym" />
+    <BundleResource Include="Resources\lund\nashpati.skin\TextIndex\text-filter.idx" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb-shm" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb-wal" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-cmp" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-dir" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-file" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-moduleurl" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-res" />
+    <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-sym" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="trippy_bg.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
