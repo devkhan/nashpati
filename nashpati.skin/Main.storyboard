@@ -673,44 +673,7 @@
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ggm-VX-lb6">
-                                <rect key="frame" x="14" y="222" width="81" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="b9s-dY-JRd"/>
-                                    <constraint firstAttribute="height" constant="21" id="uQo-cy-QPC"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="Click Me" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AO3-mu-BwO">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="ClickedButton:" target="XfG-lQ-9wD" id="pEI-of-I0w"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sq7-Bg-nyc">
-                                <rect key="frame" x="95" y="231" width="367" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="oYu-7y-3OX"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="vXw-i8-tX6">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="ggm-VX-lb6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="3sf-Fq-UdU"/>
-                            <constraint firstAttribute="trailing" secondItem="sq7-Bg-nyc" secondAttribute="trailing" constant="20" id="JV0-hW-QLB"/>
-                            <constraint firstItem="sq7-Bg-nyc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="22" id="dsI-G1-KvZ"/>
-                            <constraint firstItem="ggm-VX-lb6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="rPU-Qb-dyG"/>
-                            <constraint firstItem="sq7-Bg-nyc" firstAttribute="leading" secondItem="ggm-VX-lb6" secondAttribute="trailing" constant="8" id="ujM-Av-nOw"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="ClickedLabel" destination="sq7-Bg-nyc" id="97E-KF-L15"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

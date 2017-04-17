@@ -7,7 +7,6 @@ namespace nashpati.skin
 {
 	public partial class ViewController : NSViewController
 	{
-		private int numberOfTimesClicked = 0;
 
 		public ViewController(IntPtr handle) : base(handle)
 		{
@@ -18,7 +17,6 @@ namespace nashpati.skin
 			base.ViewDidLoad();
 
 			// Do any additional setup after loading the view.
-			ClickedLabel.StringValue = "Button has not been clicked yet.";
 		}
 
 		public override NSObject RepresentedObject
@@ -34,11 +32,5 @@ namespace nashpati.skin
 			}
 		}
 
-		partial void ClickedButton(AppKit.NSButton sender)
-		{
-
-			// Update counter and label
-			ClickedLabel.StringValue = string.Format("The button has been clicked {0} time{1}.", ++numberOfTimesClicked, (numberOfTimesClicked < 2) ? "" : "s");
-		}
 	}
 }

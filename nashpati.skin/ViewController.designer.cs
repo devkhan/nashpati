@@ -12,18 +12,9 @@ namespace nashpati.skin
 	[Register ("ViewController")]
 	partial class ViewController
 	{
-		[Outlet]
-		AppKit.NSTextField ClickedLabel { get; set; }
-
-		[Action ("ClickedButton:")]
-		partial void ClickedButton (AppKit.NSButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ClickedLabel != null) {
-				ClickedLabel.Dispose ();
-				ClickedLabel = null;
-			}
 		}
 	}
 }
