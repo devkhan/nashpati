@@ -2,9 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.AVKitIBPlugin" version="11762"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -662,73 +660,10 @@
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
-                    <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
-                    </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <avPlayerView controlsStyle="inline" showsFrameSteppingButtons="YES" showsFullScreenToggleButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-a5-OhK">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                            </avPlayerView>
-                            <progressIndicator wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="uQ7-RL-V2t">
-                                <rect key="frame" x="-7" y="258" width="498" height="20"/>
-                            </progressIndicator>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6VF-hI-RGr">
-                                <rect key="frame" x="0.0" y="248" width="402" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="zIC-bR-d3K">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMm-6A-anc">
-                                <rect key="frame" x="394" y="241" width="91" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Play" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0FA-vh-jXU">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="PlayButtonClicked:" target="XfG-lQ-9wD" id="3gV-Ks-k7d"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uQ7-RL-V2t" secondAttribute="trailing" constant="-7" id="FFO-KP-aqu"/>
-                            <constraint firstItem="rP9-a5-OhK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Kx7-hW-3Yg"/>
-                            <constraint firstAttribute="trailing" secondItem="uQ7-RL-V2t" secondAttribute="trailing" constant="-7" id="Mci-vr-Qw9"/>
-                            <constraint firstAttribute="trailing" secondItem="uQ7-RL-V2t" secondAttribute="trailing" constant="-7" id="Qxp-8A-yt8"/>
-                            <constraint firstItem="rP9-a5-OhK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="RhK-3t-tNc"/>
-                            <constraint firstItem="uQ7-RL-V2t" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="S6i-ST-GqZ"/>
-                            <constraint firstAttribute="trailing" secondItem="rP9-a5-OhK" secondAttribute="trailing" id="Yv8-s8-Guk"/>
-                            <constraint firstItem="uQ7-RL-V2t" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="b0p-l1-2C9"/>
-                            <constraint firstItem="uQ7-RL-V2t" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="-7" id="qaY-2P-Erf"/>
-                            <constraint firstAttribute="bottom" secondItem="rP9-a5-OhK" secondAttribute="bottom" id="xAU-rA-WOd"/>
-                            <constraint firstItem="uQ7-RL-V2t" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-7" id="xEW-2l-GAj"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="PlayButton" destination="QMm-6A-anc" id="EeX-G5-vIZ"/>
-                        <outlet property="PlayerView" destination="rP9-a5-OhK" id="eL7-dO-MNY"/>
-                        <outlet property="ProgressBar" destination="uQ7-RL-V2t" id="L0l-eK-PbO"/>
-                        <outlet property="UrlInput" destination="6VF-hI-RGr" id="egW-xl-d4w"/>
-                    </connections>
-                </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
 </document>
