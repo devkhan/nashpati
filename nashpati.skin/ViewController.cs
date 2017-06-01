@@ -32,7 +32,7 @@ namespace nashpati.skin
 
 		}
 
-		async partial void PlayButtonClicked(Foundation.NSObject sender)
+		partial void PlayButtonClicked(Foundation.NSObject sender)
 		{
 			string url = UrlInput.StringValue;
 			Console.WriteLine("Video URL: " + url);
@@ -41,7 +41,8 @@ namespace nashpati.skin
 			ProgressBar.Hidden = false;
 			ProgressBar.StartAnimation(sender);
 
-			await DownloadVideo(url);
+			DownloadVideo(url);
+			
 
 		}
 
