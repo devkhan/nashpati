@@ -1,10 +1,10 @@
-﻿using AppKit;
+using AppKit;
 using Foundation;
 
 namespace nashpati.skin
 {
 	[Register("AppDelegate")]
-	public class AppDelegate : NSApplicationDelegate
+	public partial class AppDelegate : NSApplicationDelegate
 	{
 		public AppDelegate()
 		{
@@ -19,5 +19,11 @@ namespace nashpati.skin
 		{
 			// Insert code here to tear down your application
 		}
+
+		partial void OpenUrl(Foundation.NSObject sender)
+		{
+			
+		}
+		
 	}
 }

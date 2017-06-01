@@ -13,13 +13,40 @@ namespace nashpati.skin
 	partial class ViewController
 	{
 		[Outlet]
+		AppKit.NSButton PlayButton { get; set; }
+
+		[Outlet]
 		AVKit.AVPlayerView PlayerView { get; set; }
+
+		[Outlet]
+		AppKit.NSProgressIndicator ProgressBar { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField UrlInput { get; set; }
+
+		[Action ("PlayButtonClicked:")]
+		partial void PlayButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (PlayButton != null) {
+				PlayButton.Dispose ();
+				PlayButton = null;
+			}
+
 			if (PlayerView != null) {
 				PlayerView.Dispose ();
 				PlayerView = null;
+			}
+
+			if (ProgressBar != null) {
+				ProgressBar.Dispose ();
+				ProgressBar = null;
+			}
+
+			if (UrlInput != null) {
+				UrlInput.Dispose ();
+				UrlInput = null;
 			}
 		}
 	}
