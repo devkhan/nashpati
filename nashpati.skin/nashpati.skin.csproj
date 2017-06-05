@@ -87,6 +87,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Models\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -106,6 +107,17 @@
     <Compile Include="NashpatiInterface.cs" />
     <Compile Include="Models\VideoResponse.cs" />
     <Compile Include="Models\FormatResponse.cs" />
+    <Compile Include="MainWindowController.cs" />
+    <Compile Include="MainWindowController.designer.cs">
+      <DependentUpon>MainWindowController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlaylistItem.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="NowPlayingController.cs" />
+    <Compile Include="NowPlayingController.designer.cs">
+      <DependentUpon>NowPlayingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DummyDataUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
