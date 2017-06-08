@@ -83,11 +83,15 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Thumbnail.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Thumbnail.imageset\profile.png" />
+    <ImageAsset Include="Assets.xcassets\Thumbnail.imageset\profile_color.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Models\" />
     <Folder Include="Utils\" />
+    <Folder Include="Assets.xcassets\Thumbnail.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -155,6 +159,8 @@
     <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-moduleurl" />
     <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-res" />
     <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-sym" />
+    <BundleResource Include="Resources\profile.png" />
+    <BundleResource Include="Resources\profile_color.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="trippy_bg.mp4" />

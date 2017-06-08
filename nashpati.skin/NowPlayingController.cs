@@ -25,8 +25,10 @@ namespace nashpati.skin
 			_playlist = new NSMutableArray();
 		}
 
-		public override void AwakeFromNib()
+		public override void ViewDidLoad()
 		{
+			base.ViewDidLoad();
+
 			// TODO: Debug data, remove on release.
 			DummyDataUtils.playlistItems().ForEach(AddPerson);
 		}
