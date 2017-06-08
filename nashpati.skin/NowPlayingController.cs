@@ -29,6 +29,8 @@ namespace nashpati.skin
 		{
 			base.ViewDidLoad();
 
+			this.View.Frame = new CoreGraphics.CGRect(100, 100, 400, 800);
+
 			// TODO: Debug data, remove on release.
 			DummyDataUtils.playlistItems().ForEach(AddPerson);
 		}
