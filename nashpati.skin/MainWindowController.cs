@@ -9,6 +9,8 @@ namespace nashpati.skin
 {
 	public partial class MainWindowController : NSWindowController
 	{
+		public static NSWindow MainWindow { get; private set; }
+
 		public MainWindowController (IntPtr handle) : base (handle)
 		{
 
@@ -18,6 +20,7 @@ namespace nashpati.skin
 		{
 			base.WindowDidLoad();
 
+			MainWindow = this.Window;
 			// Main window config.
 			Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
 			Window.TitlebarAppearsTransparent = true;

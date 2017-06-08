@@ -127,6 +127,10 @@
       <DependentUpon>NowPlayingController.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\DummyDataUtils.cs" />
+    <Compile Include="PlayerPanelController.cs" />
+    <Compile Include="PlayerPanelController.designer.cs">
+      <DependentUpon>PlayerPanelController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
