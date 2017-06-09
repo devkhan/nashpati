@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="11762"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -717,7 +718,7 @@
             <objects>
                 <windowController id="uBc-Iz-1pw" customClass="PlayerPanelController" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HDv-Zl-Qnl" customClass="NSPanel">
-                        <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="310" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
@@ -730,32 +731,28 @@
             </objects>
             <point key="canvasLocation" x="662" y="159"/>
         </scene>
-        <!--View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="Yfc-lK-C5y">
             <objects>
-                <viewController id="56h-vl-rnv" sceneMemberID="viewController">
+                <viewController id="56h-vl-rnv" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" id="Oba-cz-3pc">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="10" translatesAutoresizingMaskIntoConstraints="NO" id="nFM-tu-aHH">
-                                <rect key="frame" x="105" y="117" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Detach" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jyc-tv-oKd">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="4WO-hG-kVu">
-                                <rect key="frame" x="293" y="117" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Attach" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9CX-KD-oUZ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
+                            <avPlayerView controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="mbH-r6-rgA">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </avPlayerView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="mbH-r6-rgA" firstAttribute="top" secondItem="Oba-cz-3pc" secondAttribute="top" id="CWF-gp-P3r"/>
+                            <constraint firstAttribute="trailing" secondItem="mbH-r6-rgA" secondAttribute="trailing" id="Ewt-dd-1Vz"/>
+                            <constraint firstItem="mbH-r6-rgA" firstAttribute="leading" secondItem="Oba-cz-3pc" secondAttribute="leading" id="ncj-8R-7RB"/>
+                            <constraint firstAttribute="bottom" secondItem="mbH-r6-rgA" secondAttribute="bottom" id="uLu-ZK-LLf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="PlayerView" destination="mbH-r6-rgA" id="thi-Bz-3xh"/>
+                    </connections>
                 </viewController>
                 <customObject id="XiJ-0p-fbS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

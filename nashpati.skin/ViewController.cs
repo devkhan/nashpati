@@ -1,4 +1,5 @@
-﻿using System;
+﻿// This class is here for legacy and code-inspiration purposes. Will be removed later.
+using System;
 
 using AppKit;
 using Foundation;

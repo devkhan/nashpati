@@ -131,6 +131,10 @@
     <Compile Include="PlayerPanelController.designer.cs">
       <DependentUpon>PlayerPanelController.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerViewController.cs" />
+    <Compile Include="PlayerViewController.designer.cs">
+      <DependentUpon>PlayerViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -170,9 +174,6 @@
     <BundleResource Include="Resources\lund\nashpati.skin\Index\MonoMac\macosx10.12-x86_64\nashpati.skin.xcindex\db.xcindexdb.strings-sym" />
     <BundleResource Include="Resources\profile.png" />
     <BundleResource Include="Resources\profile_color.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="trippy_bg.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\refit.3.0.1\build\netstandard1.3\refit.targets" Condition="Exists('..\packages\refit.3.0.1\build\netstandard1.3\refit.targets')" />

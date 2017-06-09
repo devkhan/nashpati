@@ -16,15 +16,17 @@ namespace nashpati.skin
 		public override void WindowDidLoad()
 		{
 			base.WindowDidLoad();
-			((NSButton)this.Window.ContentView.ViewWithTag(10)).Activated += (sender, e) =>
-				MainWindowController.MainWindow.AddChildWindow(this.Window, NSWindowOrderingMode.Above);
-			((NSButton)this.Window.ContentView.ViewWithTag(100)).Activated += (sender, e) =>
-				MainWindowController.MainWindow.RemoveChildWindow(this.Window);
+			//this.Window.TitleVisibility = NSWindowTitleVisibility.HiddenWhenActive;
+			//this.Window.TitlebarAppearsTransparent = true;
+			//((NSButton)this.Window.ContentView.ViewWithTag(100)).Activated += (sender, e) =>
+			//	MainWindowController.MainWindow.AddChildWindow(this.Window, NSWindowOrderingMode.Above);
+			//((NSButton)this.Window.ContentView.ViewWithTag(10)).Activated += (sender, e) =>
+			//	MainWindowController.MainWindow.RemoveChildWindow(this.Window);
 
 
 			((NSPanel)Window).FloatingPanel = true;
 			Window.MovableByWindowBackground = true;
-			Window.Level = NSWindowLevel.Floating;
+			Window.Level = NSWindowLevel.Dock;
 			Window.CollectionBehavior = NSWindowCollectionBehavior.MoveToActiveSpace | NSWindowCollectionBehavior.FullScreenAuxiliary;
 		}
 	}
