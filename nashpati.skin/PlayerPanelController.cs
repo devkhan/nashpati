@@ -7,27 +7,68 @@ using AppKit;
 
 namespace nashpati.skin
 {
-	public partial class PlayerPanelController : NSWindowController
+	public partial class PlayerPanelController : NSWindowController, IPreferencesListener
 	{
+		private static NSPanel PlayerPanel;
+		private static Preferences prefs;
+
 		public PlayerPanelController (IntPtr handle) : base (handle)
 		{
+			PreferenceManager.Default.Register(this);
+			prefs = PreferenceManager.Default.GlobalPreferences;
 		}
 
 		public override void WindowDidLoad()
 		{
 			base.WindowDidLoad();
-			//this.Window.TitleVisibility = NSWindowTitleVisibility.HiddenWhenActive;
-			//this.Window.TitlebarAppearsTransparent = true;
-			//((NSButton)this.Window.ContentView.ViewWithTag(100)).Activated += (sender, e) =>
-				MainWindowController.MainWindow.AddChildWindow(this.Window, NSWindowOrderingMode.Above);
-			//((NSButton)this.Window.ContentView.ViewWithTag(10)).Activated += (sender, e) =>
-			//	MainWindowController.MainWindow.RemoveChildWindow(this.Window);
+			PlayerPanel = (NSPanel)Window;
 
+			PlayerPanel.MovableByWindowBackground = true;
 
-			((NSPanel)Window).FloatingPanel = true;
-			Window.MovableByWindowBackground = true;
+			if (prefs.AttachedToMainWindow)
+			{
+                AttachToMainWindow();
+			}
+			else
+			{
+				DetachFromWindow();
+			}
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			PreferenceManager.Default.UnRegister(this);
+			base.Dispose(disposing);
+		}
+
+		async public void AttachToMainWindow()
+		{
+			PlayerPanel.TitleVisibility = NSWindowTitleVisibility.Hidden;
+			PlayerPanel.StyleMask = NSWindowStyle.Borderless | NSWindowStyle.Utility;
+			PlayerPanel.FloatingPanel = false;
+			MainWindowController.MainWindow.AddChildWindow(PlayerPanel, NSWindowOrderingMode.Above);
+		}
+
+		async public void DetachFromWindow()
+		{
+			MainWindowController.MainWindow.RemoveChildWindow(this.Window);
+			PlayerPanel.StyleMask = NSWindowStyle.Hud;
+			PlayerPanel.FloatingPanel = true;
 			Window.Level = NSWindowLevel.Dock;
 			Window.CollectionBehavior = NSWindowCollectionBehavior.MoveToActiveSpace | NSWindowCollectionBehavior.FullScreenAuxiliary;
+		}
+
+		public void PreferencesChanged(Preferences preferences)
+		{
+			prefs = preferences;
+			if (prefs.AttachedToMainWindow)
+			{
+				AttachToMainWindow();
+			}
+			else
+			{
+				DetachFromWindow();
+			}
 		}
 	}
 }

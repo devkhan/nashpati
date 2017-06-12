@@ -28,6 +28,8 @@
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <PlatformTarget>x86</PlatformTarget>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -43,6 +45,7 @@
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>None</LinkMode>
     <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -168,6 +171,9 @@
     <Compile Include="PlayerControlsController.designer.cs">
       <DependentUpon>PlayerControlsController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\PreferenceManager.cs" />
+    <Compile Include="Utils\Preferences.cs" />
+    <Compile Include="Utils\IPreferenceListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

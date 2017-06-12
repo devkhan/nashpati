@@ -5,16 +5,38 @@ using System;
 using Foundation;
 using AppKit;
 using AVFoundation;
+using System.Threading.Tasks;
 
 namespace nashpati.skin
 {
-	public partial class PlayerControlsController : NSViewController
+	public partial class PlayerControlsController : NSViewController, IPreferencesListener
 	{
 		static AVPlayer player { get; set; }
 
+		private static Preferences prefs;
+		private static bool _attached;
+
+		[Export("attached")]
+		bool attached
+		{
+			get
+			{
+				return _attached;
+			}
+			set
+			{
+				WillChangeValue("attached");
+				_attached = value;
+				PreferenceManager.Default.GlobalPreferences.AttachedToMainWindow = value;
+				DidChangeValue("attached");
+			}
+		}
+
 		public PlayerControlsController (IntPtr handle) : base (handle)
 		{
-			
+			PreferenceManager.Default.Register(this);
+			prefs = PreferenceManager.Default.GlobalPreferences;
+			_attached = prefs.AttachedToMainWindow;
 		}
 
 		public override void ViewDidLoad()
@@ -22,6 +44,19 @@ namespace nashpati.skin
 			base.ViewDidLoad();
 
 			//player.Volume = VolumeSlider.FloatValue;
+		}
+
+		public void PreferencesChanged(Preferences preferences)
+		{
+			prefs = preferences;
+			attached = prefs.AttachedToMainWindow;
+			Console.WriteLine("Preferences updated.");
+		}
+
+		public override void ViewDidDisappear()
+		{
+			PreferenceManager.Default.UnRegister(this);
+			base.ViewDidDisappear();
 		}
 	}
 }
