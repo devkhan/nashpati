@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using static System.Environment;
 
 namespace nashpati.skin
 {
@@ -9,13 +12,34 @@ namespace nashpati.skin
 		private static readonly object padlock = new object();
 		private static PreferenceManager instance = null;
 		private ConcurrentDictionary<string, IPreferencesListener> preferenceListeners;
-		private static Uri preferencesFileLocation;
+		private static Uri preferencesFileLocation = new Uri(Path.Combine(GetFolderPath(SpecialFolder.UserProfile), ".nashpati_config"));
 		public Preferences GlobalPreferences { get; set; }
 
 		private PreferenceManager()
 		{
 			preferenceListeners = new ConcurrentDictionary<string, IPreferencesListener>();
-			GlobalPreferences = new Preferences();
+			if (File.Exists(preferencesFileLocation.AbsolutePath))
+			{
+				GlobalPreferences = JsonConvert.DeserializeObject<Preferences>(File.ReadAllText(preferencesFileLocation.AbsolutePath));
+			}
+			else
+			{
+				GlobalPreferences = new Preferences();
+			}
+			GlobalPreferences.PropertyChanged += (sender, e) =>
+			{
+				JsonSerializer serializer = new JsonSerializer();
+				//serializer.Converters.Add(new JavaScriptDateTimeConverter());
+				serializer.NullValueHandling = NullValueHandling.Ignore;
+				serializer.Formatting = Formatting.Indented;
+				using (StreamWriter sw = new StreamWriter(preferencesFileLocation.AbsolutePath))
+				{
+					using (JsonWriter writer = new JsonTextWriter(sw))
+					{
+						serializer.Serialize(writer, GlobalPreferences);
+					}
+				}
+			};
 		}
 
 		public static PreferenceManager Default

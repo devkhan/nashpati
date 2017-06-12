@@ -834,10 +834,12 @@
                                 </constraints>
                                 <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="mjZ-EV-5og"/>
                             </slider>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2g-E3-fqJ">
-                                <rect key="frame" x="81" y="41" width="61" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="As3-2N-8cn">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="O2g-E3-fqJ">
+                                <rect key="frame" x="18" y="42" width="77" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="fvx-Qp-Ee4"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="Attached" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="As3-2N-8cn">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -852,8 +854,10 @@
                             <constraint firstItem="ZsW-GZ-wbs" firstAttribute="centerY" secondItem="vYp-2J-WlI" secondAttribute="centerY" id="9Af-8u-Dj3"/>
                             <constraint firstItem="mfB-pM-uOf" firstAttribute="leading" secondItem="cLO-f5-T8g" secondAttribute="trailing" constant="10" id="DKe-qp-d6b"/>
                             <constraint firstItem="mfB-pM-uOf" firstAttribute="centerY" secondItem="vYp-2J-WlI" secondAttribute="centerY" id="J0z-3g-HVq"/>
+                            <constraint firstItem="O2g-E3-fqJ" firstAttribute="centerY" secondItem="vYp-2J-WlI" secondAttribute="centerY" id="eQK-rI-3Sn"/>
                             <constraint firstItem="cLO-f5-T8g" firstAttribute="centerY" secondItem="vYp-2J-WlI" secondAttribute="centerY" id="gn2-wf-ASd"/>
                             <constraint firstItem="KDK-vt-XpW" firstAttribute="centerY" secondItem="vYp-2J-WlI" secondAttribute="centerY" id="iGV-FJ-3Ci"/>
+                            <constraint firstItem="O2g-E3-fqJ" firstAttribute="leading" secondItem="vYp-2J-WlI" secondAttribute="leading" constant="20" id="oJM-k8-hu4"/>
                             <constraint firstItem="cLO-f5-T8g" firstAttribute="centerX" secondItem="vYp-2J-WlI" secondAttribute="centerX" id="w10-o9-SGK"/>
                         </constraints>
                     </view>
