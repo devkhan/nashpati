@@ -13,6 +13,9 @@ namespace nashpati.skin
 	partial class PlayerViewController
 	{
 		[Outlet]
+		AppKit.NSView PlayerControlsContainerView { get; set; }
+
+		[Outlet]
 		AVKit.AVPlayerView PlayerView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -20,6 +23,11 @@ namespace nashpati.skin
 			if (PlayerView != null) {
 				PlayerView.Dispose ();
 				PlayerView = null;
+			}
+
+			if (PlayerControlsContainerView != null) {
+				PlayerControlsContainerView.Dispose ();
+				PlayerControlsContainerView = null;
 			}
 		}
 	}

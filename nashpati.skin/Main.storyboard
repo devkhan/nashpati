@@ -718,7 +718,7 @@
             <objects>
                 <windowController id="uBc-Iz-1pw" customClass="PlayerPanelController" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HDv-Zl-Qnl" customClass="NSPanel">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="310" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
@@ -742,19 +742,33 @@
                             <avPlayerView controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="mbH-r6-rgA">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             </avPlayerView>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="RIq-Qv-VeB">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="K52-sF-O6Q"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="uRy-4l-fKz" kind="embed" id="35L-Po-9yW"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="mbH-r6-rgA" firstAttribute="top" secondItem="Oba-cz-3pc" secondAttribute="top" id="CWF-gp-P3r"/>
                             <constraint firstAttribute="trailing" secondItem="mbH-r6-rgA" secondAttribute="trailing" id="Ewt-dd-1Vz"/>
+                            <constraint firstAttribute="bottom" secondItem="RIq-Qv-VeB" secondAttribute="bottom" id="FLZ-oj-4cI"/>
+                            <constraint firstAttribute="trailing" secondItem="RIq-Qv-VeB" secondAttribute="trailing" id="P1c-zb-p1a"/>
                             <constraint firstItem="mbH-r6-rgA" firstAttribute="leading" secondItem="Oba-cz-3pc" secondAttribute="leading" id="ncj-8R-7RB"/>
                             <constraint firstAttribute="bottom" secondItem="mbH-r6-rgA" secondAttribute="bottom" id="uLu-ZK-LLf"/>
+                            <constraint firstItem="RIq-Qv-VeB" firstAttribute="leading" secondItem="Oba-cz-3pc" secondAttribute="leading" id="wnn-0t-e1E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="PlayerControlsContainerView" destination="RIq-Qv-VeB" id="OUl-TR-oIf"/>
                         <outlet property="PlayerView" destination="mbH-r6-rgA" id="thi-Bz-3xh"/>
                     </connections>
                 </viewController>
                 <customObject id="XiJ-0p-fbS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="49R-0W-Up5"/>
             </objects>
             <point key="canvasLocation" x="1242" y="-50"/>
         </scene>
@@ -769,12 +783,12 @@
                 </viewController>
                 <customObject id="imD-DR-i2x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="332"/>
+            <point key="canvasLocation" x="1302" y="368"/>
         </scene>
-        <!--View Controller-->
+        <!--Player Controls Controller-->
         <scene sceneID="P08-i8-GdR">
             <objects>
-                <viewController id="uRy-4l-fKz" sceneMemberID="viewController">
+                <viewController id="uRy-4l-fKz" customClass="PlayerControlsController" sceneMemberID="viewController">
                     <view key="view" id="vYp-2J-WlI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -832,6 +846,9 @@
                             <constraint firstItem="cLO-f5-T8g" firstAttribute="centerX" secondItem="vYp-2J-WlI" secondAttribute="centerX" id="w10-o9-SGK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="VolumeSlider" destination="KDK-vt-XpW" id="ahY-Oj-qhI"/>
+                    </connections>
                 </viewController>
                 <customObject id="nnL-Lc-xy7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -970,6 +987,9 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="NowPlayingList" destination="FTa-2Z-jcq" id="ODA-Nt-RTv"/>
+                    </connections>
                 </viewController>
                 <customObject id="DoM-kR-X38" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController objectClassName="PlaylistItem" id="9OS-Se-s9A">
@@ -1048,9 +1068,24 @@
             </objects>
             <point key="canvasLocation" x="1227" y="954"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="be6-D3-d1s">
+            <objects>
+                <viewController id="Y7h-yb-dKE" sceneMemberID="viewController">
+                    <view key="view" id="DDa-JA-Gsk">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="FlH-XN-GbX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="InfoIcon" width="128" height="128"/>
         <image name="profile" width="460" height="460"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="35L-Po-9yW"/>
+    </inferredMetricsTieBreakers>
 </document>

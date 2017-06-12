@@ -31,6 +31,16 @@ namespace nashpati.skin
 
 			this.View.Frame = new CoreGraphics.CGRect(100, 100, 400, 800);
 
+			NowPlayingList.Activated += (sender, e) =>
+			{
+				if (Playlist.GetItem<PlaylistItem>((System.nuint)((NSTableView)sender).SelectedRow).IsDownloaded)
+				{
+					//PlayerViewController.player.
+				}
+				Console.WriteLine(sender.ToString());
+				Console.WriteLine(e.ToString());
+			};
+
 			// TODO: Debug data, remove on release.
 			DummyDataUtils.playlistItems().ForEach(AddPerson);
 		}

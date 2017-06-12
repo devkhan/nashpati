@@ -10,10 +10,8 @@ namespace nashpati.skin
 {
 	public partial class PlayerViewController : NSViewController
 	{
-		AVPlayer player;
-		//AVPlayerLayer playerLayer;
-		AVAsset asset;
-		AVPlayerItem playerItem;
+		public static AVPlayer player;
+
 
 		public PlayerViewController (IntPtr handle) : base (handle)
 		{
@@ -23,12 +21,21 @@ namespace nashpati.skin
 		{
 			base.ViewDidLoad();
 
-			asset = AVAsset.FromUrl(NSUrl.FromFilename(Environment.GetEnvironmentVariable("NASHPATI_SAMPLE_VIDEO_FILE") ?? "/temp/sample.mp4"));
-			playerItem = new AVPlayerItem(asset);
-			player = new AVPlayer(playerItem);
+			player = new AVPlayer(
+				new AVPlayerItem(
+					AVAsset.FromUrl(
+						NSUrl.FromFilename(
+							Environment.GetEnvironmentVariable(
+								"NASHPATI_SAMPLE_VIDEO_FILE") ?? "/temp/sample.mp4"))));
+
 			PlayerView.Player = player;
 			PlayerView.Player.Play();
 
+			PlayerControlsContainerView.Layer = new CoreAnimation.CALayer();
+			PlayerControlsContainerView.Layer.ZPosition = 1;
+			PlayerView.AddSubview(PlayerControlsContainerView);
+
 		}
+
 	}
 }

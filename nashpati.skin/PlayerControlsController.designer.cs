@@ -9,17 +9,17 @@ using System.CodeDom.Compiler;
 
 namespace nashpati.skin
 {
-	[Register ("NowPlayingController")]
-	partial class NowPlayingController
+	[Register ("PlayerControlsController")]
+	partial class PlayerControlsController
 	{
 		[Outlet]
-		AppKit.NSTableView NowPlayingList { get; set; }
+		AppKit.NSSlider VolumeSlider { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NowPlayingList != null) {
-				NowPlayingList.Dispose ();
-				NowPlayingList = null;
+			if (VolumeSlider != null) {
+				VolumeSlider.Dispose ();
+				VolumeSlider = null;
 			}
 		}
 	}

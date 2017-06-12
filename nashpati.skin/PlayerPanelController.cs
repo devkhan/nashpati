@@ -19,7 +19,7 @@ namespace nashpati.skin
 			//this.Window.TitleVisibility = NSWindowTitleVisibility.HiddenWhenActive;
 			//this.Window.TitlebarAppearsTransparent = true;
 			//((NSButton)this.Window.ContentView.ViewWithTag(100)).Activated += (sender, e) =>
-			//	MainWindowController.MainWindow.AddChildWindow(this.Window, NSWindowOrderingMode.Above);
+				MainWindowController.MainWindow.AddChildWindow(this.Window, NSWindowOrderingMode.Above);
 			//((NSButton)this.Window.ContentView.ViewWithTag(10)).Activated += (sender, e) =>
 			//	MainWindowController.MainWindow.RemoveChildWindow(this.Window);
 

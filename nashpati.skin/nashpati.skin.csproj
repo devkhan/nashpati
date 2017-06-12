@@ -8,9 +8,9 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>nashpati.skin</RootNamespace>
     <AssemblyName>nashpati</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <UseXamMacFullFramework>true</UseXamMacFullFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +41,7 @@
     <IncludeMonoRuntime>true</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <LinkMode>SdkOnly</LinkMode>
+    <LinkMode>None</LinkMode>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
@@ -68,6 +68,34 @@
     </Reference>
     <Reference Include="Refit">
       <HintPath>..\packages\refit.3.0.1\lib\netstandard1.3\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetCross.Memory.Unsafe">
+      <HintPath>..\packages\DotNetCross.Memory.Unsafe.0.2.3.4\lib\netstandard1.0\DotNetCross.Memory.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\packages\Remotion.Linq.2.1.1\lib\netstandard1.0\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.3.5.3\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Database.3.5.3\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\packages\RavenDB.Database.3.5.3\lib\net45\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +130,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -134,6 +163,10 @@
     <Compile Include="PlayerViewController.cs" />
     <Compile Include="PlayerViewController.designer.cs">
       <DependentUpon>PlayerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerControlsController.cs" />
+    <Compile Include="PlayerControlsController.designer.cs">
+      <DependentUpon>PlayerControlsController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -177,4 +210,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\refit.3.0.1\build\netstandard1.3\refit.targets" Condition="Exists('..\packages\refit.3.0.1\build\netstandard1.3\refit.targets')" />
+  <Import Project="..\packages\Realm.Database.1.4.0\build\Realm.Database.targets" Condition="Exists('..\packages\Realm.Database.1.4.0\build\Realm.Database.targets')" />
+  <Import Project="..\packages\Realm.1.4.0\build\Realm.targets" Condition="Exists('..\packages\Realm.1.4.0\build\Realm.targets')" />
+  <Import Project="..\packages\Fody.2.1.0\build\netstandard1.0\Fody.targets" Condition="Exists('..\packages\Fody.2.1.0\build\netstandard1.0\Fody.targets')" />
 </Project>
