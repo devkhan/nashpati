@@ -5,12 +5,25 @@ using System;
 using Foundation;
 using AppKit;
 using AVFoundation;
+using CoreMedia;
 
 namespace nashpati.skin
 {
 	public partial class PlayerViewController : BaseViewController
 	{
-		public static AVPlayer player;
+		public static AVPlayer Player;
+
+		public PlaylistItem Current
+		{
+			get
+			{
+				return prefs.CurrentPlaying;
+			}
+			set
+			{
+				PreferenceManager.Default.GlobalPreferences.CurrentPlaying = value;
+			}
+		}
 
 
 		public PlayerViewController (IntPtr handle) : base (handle)
@@ -21,14 +34,14 @@ namespace nashpati.skin
 		{
 			base.ViewDidLoad();
 
-			player = new AVPlayer(
+			Player = new AVPlayer(
 				new AVPlayerItem(
 					AVAsset.FromUrl(
 						NSUrl.FromFilename(
 							Environment.GetEnvironmentVariable(
 								"NASHPATI_SAMPLE_VIDEO_FILE") ?? "/temp/sample.mp4"))));
 
-			PlayerView.Player = player;
+			PlayerView.Player = Player;
 			if (!base.prefs.Paused) { PlayerView.Player.Play(); }
 
 			PlayerControlsContainerView.Layer = new CoreAnimation.CALayer();
@@ -42,11 +55,20 @@ namespace nashpati.skin
 			base.PreferencesChanged(preferences);
 			if (prefs.Paused)
 			{
-				player.Pause();
+				Player.Pause();
 			}
 			else
 			{
-				player.Play();
+				Player.Play();
+			}
+			if (Current != null && Current.IsBufferable)
+			{
+				Player = new AVPlayer(
+					new AVPlayerItem(
+						AVAsset.FromUrl(
+							NSUrl.FromFilename(Current.VideoFilePath))));
+				Player.Seek(CMTime.FromSeconds(Current.At, 1));
+				PlayerView.Player = Player;
 			}
 		}
 

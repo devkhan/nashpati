@@ -7,7 +7,7 @@ using AppKit;
 
 namespace nashpati.skin
 {
-	public partial class NowPlayingController : NSViewController
+	public partial class NowPlayingController : BaseViewController
 	{
 		private NSMutableArray _playlist;
 
@@ -31,18 +31,22 @@ namespace nashpati.skin
 
 			this.View.Frame = new CoreGraphics.CGRect(100, 100, 400, 800);
 
-			NowPlayingList.Activated += (sender, e) =>
-			{
-				if (Playlist.GetItem<PlaylistItem>((System.nuint)((NSTableView)sender).SelectedRow).IsDownloaded)
-				{
-					//PlayerViewController.player.
-				}
-				Console.WriteLine(sender.ToString());
-				Console.WriteLine(e.ToString());
-			};
+			//NowPlayingList.Activated += (sender, e) =>
+			//{
+			//	if (Playlist.GetItem<PlaylistItem>((System.nuint)((NSTableView)sender).SelectedRow).IsDownloaded)
+			//	{
+			//		//PlayerViewController.player.
+			//	}
+			//	Console.WriteLine(sender.ToString());
+			//	Console.WriteLine(e.ToString());
+			//};
+
+			var dataSource = new NowPlayingTableDataSource();
 
 			// TODO: Debug data, remove on release.
-			DummyDataUtils.playlistItems().ForEach(AddPerson);
+			DummyDataUtils.playlistItems().ForEach(dataSource.Items.Add);
+			NowPlayingList.DataSource = dataSource;
+			NowPlayingList.Delegate = new NowPlayingTableDelegate(dataSource);
 		}
 
 		[Export("addObject:")]
@@ -75,6 +79,11 @@ namespace nashpati.skin
 			WillChangeValue("playlistItemArray");
 			_playlist = array;
 			DidChangeValue("playlistItemArray");
+		}
+
+		public override void PreferencesChanged(Preferences preferences)
+		{
+			base.PreferencesChanged(preferences);
 		}
 
 	}

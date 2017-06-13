@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PlaylistRow">
+            <connections>
+                <outlet property="InfoButton" destination="qI8-7B-Kbx" id="lnT-BN-ePT"/>
+                <outlet property="PlaylistItemThumbnail" destination="OU9-QX-rzk" id="HKS-ls-yid"/>
+                <outlet property="RootView" destination="2" id="bRr-e0-5fX"/>
+                <outlet property="TitleLabel" destination="MHj-y7-XAf" id="8zc-QS-Upo"/>
+                <outlet property="UrlLabel" destination="7Fz-oe-dbG" id="G7k-6g-BiT"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView misplaced="YES" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" misplaced="YES" id="Akz-63-iUL">
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <imageView id="OU9-QX-rzk">
+                            <rect key="frame" x="5" y="5" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profile" id="XEQ-gn-VF1"/>
+                        </imageView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MHj-y7-XAf">
+                            <rect key="frame" x="48" y="26" width="354" height="19"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="I42-0c-zw6">
+                                <font key="font" metaFont="system" size="16"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="self.item.Title" id="Y3O-PX-2a0"/>
+                            </connections>
+                        </textField>
+                        <button id="qI8-7B-Kbx">
+                            <rect key="frame" x="417" y="17" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LZp-Bi-FLf">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7Fz-oe-dbG">
+                            <rect key="frame" x="48" y="5" width="354" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="sRd-Uq-X1W">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="self.item.VideoUrl" id="DX4-kp-Z3q"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                </view>
+            </subviews>
+            <point key="canvasLocation" x="129" y="66"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="InfoIcon" width="96" height="96"/>
+        <image name="profile" width="460" height="460"/>
+    </resources>
+</document>

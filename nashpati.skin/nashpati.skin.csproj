@@ -191,9 +191,16 @@
     <Compile Include="Utils\Preferences.cs" />
     <Compile Include="Utils\IPreferenceListener.cs" />
     <Compile Include="BaseViewController.cs" />
+    <Compile Include="PlaylistRow.cs" />
+    <Compile Include="PlaylistRow.designer.cs">
+      <DependentUpon>PlaylistRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowPlayingTableDataSource.cs" />
+    <Compile Include="NowPlayingTableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="PlaylistRow.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\I\ModuleCache\Session.modulevalidation" />
