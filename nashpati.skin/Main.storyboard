@@ -799,10 +799,13 @@
                                     <constraint firstAttribute="height" constant="48" id="GPH-dU-qAU"/>
                                     <constraint firstAttribute="width" constant="48" id="rTk-Wj-CAY"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="EnN-Ev-WwL">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PlayIcon" imagePosition="only" alignment="center" alternateImage="PauseIcon" imageScaling="proportionallyUpOrDown" inset="2" id="EnN-Ev-WwL">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="PlayPauseButtonClicked:" target="uRy-4l-fKz" id="I9K-H6-XoY"/>
+                                </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="mfB-pM-uOf">
                                 <rect key="frame" x="334" y="32" width="36" height="36"/>
@@ -810,7 +813,7 @@
                                     <constraint firstAttribute="width" constant="36" id="c7L-lD-6YX"/>
                                     <constraint firstAttribute="height" constant="36" id="cvd-tp-GSj"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bcx-7X-G04">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NextIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bcx-7X-G04">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -821,7 +824,7 @@
                                     <constraint firstAttribute="width" constant="36" id="C8B-iB-ZPZ"/>
                                     <constraint firstAttribute="height" constant="36" id="aNq-08-3oa"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LsZ-Gb-KL4">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PreviousIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LsZ-Gb-KL4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -862,6 +865,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="PlayPauseButton" destination="cLO-f5-T8g" id="d44-I1-yMK"/>
                         <outlet property="VolumeSlider" destination="KDK-vt-XpW" id="ahY-Oj-qhI"/>
                     </connections>
                 </viewController>
@@ -1098,6 +1102,10 @@
     </scenes>
     <resources>
         <image name="InfoIcon" width="128" height="128"/>
+        <image name="NextIcon" width="128" height="128"/>
+        <image name="PauseIcon" width="128" height="128"/>
+        <image name="PlayIcon" width="128" height="128"/>
+        <image name="PreviousIcon" width="128" height="128"/>
         <image name="profile" width="460" height="460"/>
     </resources>
     <inferredMetricsTieBreakers>

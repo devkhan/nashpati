@@ -121,6 +121,18 @@
     <ImageAsset Include="Resources\Assets.xcassets\InfoIcon.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\InfoIcon.imageset\ic_info_outline_black_48dp_1x.png" />
     <ImageAsset Include="Assets.xcassets\InfoIcon.imageset\ic_info_outline_black_48dp_2x.png" />
+    <ImageAsset Include="Assets.xcassets\PlayIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\PlayIcon.imageset\ic_play_arrow_white_48dp_1x.png" />
+    <ImageAsset Include="Assets.xcassets\PlayIcon.imageset\ic_play_arrow_white_48dp_2x.png" />
+    <ImageAsset Include="Assets.xcassets\PreviousIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\PreviousIcon.imageset\ic_skip_previous_white_48dp_1x.png" />
+    <ImageAsset Include="Assets.xcassets\PreviousIcon.imageset\ic_skip_previous_white_48dp_2x.png" />
+    <ImageAsset Include="Assets.xcassets\NextIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\NextIcon.imageset\ic_skip_next_white_48dp_1x.png" />
+    <ImageAsset Include="Assets.xcassets\NextIcon.imageset\ic_skip_next_white_48dp_2x.png" />
+    <ImageAsset Include="Assets.xcassets\PauseIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\PauseIcon.imageset\ic_pause_white_48dp_1x.png" />
+    <ImageAsset Include="Assets.xcassets\PauseIcon.imageset\ic_pause_white_48dp_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -128,6 +140,10 @@
     <Folder Include="Utils\" />
     <Folder Include="Assets.xcassets\Thumbnail.imageset\" />
     <Folder Include="Assets.xcassets\InfoIcon.imageset\" />
+    <Folder Include="Assets.xcassets\PlayIcon.imageset\" />
+    <Folder Include="Assets.xcassets\PreviousIcon.imageset\" />
+    <Folder Include="Assets.xcassets\NextIcon.imageset\" />
+    <Folder Include="Assets.xcassets\PauseIcon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -174,6 +190,7 @@
     <Compile Include="Utils\PreferenceManager.cs" />
     <Compile Include="Utils\Preferences.cs" />
     <Compile Include="Utils\IPreferenceListener.cs" />
+    <Compile Include="BaseViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

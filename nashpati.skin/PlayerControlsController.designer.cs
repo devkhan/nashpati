@@ -13,13 +13,24 @@ namespace nashpati.skin
 	partial class PlayerControlsController
 	{
 		[Outlet]
+		AppKit.NSButton PlayPauseButton { get; set; }
+
+		[Outlet]
 		AppKit.NSSlider VolumeSlider { get; set; }
+
+		[Action ("PlayPauseButtonClicked:")]
+		partial void PlayPauseButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (VolumeSlider != null) {
 				VolumeSlider.Dispose ();
 				VolumeSlider = null;
+			}
+
+			if (PlayPauseButton != null) {
+				PlayPauseButton.Dispose ();
+				PlayPauseButton = null;
 			}
 		}
 	}

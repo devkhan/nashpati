@@ -30,7 +30,7 @@ namespace nashpati.skin
 			{
 				JsonSerializer serializer = new JsonSerializer();
 				//serializer.Converters.Add(new JavaScriptDateTimeConverter());
-				serializer.NullValueHandling = NullValueHandling.Ignore;
+				serializer.NullValueHandling = NullValueHandling.Include;
 				serializer.Formatting = Formatting.Indented;
 				using (StreamWriter sw = new StreamWriter(preferencesFileLocation.AbsolutePath))
 				{

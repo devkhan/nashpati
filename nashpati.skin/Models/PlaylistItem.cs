@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Foundation;
+using Newtonsoft.Json;
 
 namespace nashpati.skin
 {
@@ -11,6 +12,7 @@ namespace nashpati.skin
 		Uri _video_url = null;
 
 		[Export("Title")]
+		[JsonProperty("title")]
 		public string Title
 		{
 			get
@@ -24,6 +26,7 @@ namespace nashpati.skin
 		}
 
 		[Export("VideoUrl")]
+		[JsonProperty("video_url")]
 		public string VideoUrl
 		{
 			get
@@ -39,18 +42,23 @@ namespace nashpati.skin
 		}
 
 		[Export("VideoFilePath")]
+		[JsonProperty("file_path")]
 		public string VideoFilePath { get; set; }
 
 		[Export("isBufferable")]
-		public bool IsBufferable { get; set; }
+		[JsonProperty("bufferable")]
+		public bool IsBufferable { get; set; } = false;
 
 		[Export("isDownloaded")]
-		public bool IsDownloaded { get; set; }
+		[JsonProperty("downloaded")]
+		public bool IsDownloaded { get; set; } = false;
+
+		[Export("At")]
+		[JsonProperty("at")]
+		public uint At { get; set; } = 0;
 
 		public PlaylistItem()
 		{
-			IsBufferable = false;
-			IsDownloaded = false;
 		}
 
 		public PlaylistItem(string videoUrl, string title = null, bool bufferable = false, bool downloaded = false, string filePath = "")

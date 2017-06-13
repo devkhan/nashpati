@@ -16,6 +16,9 @@ namespace nashpati.skin
 		private static Preferences prefs;
 		private static bool _attached;
 
+		private NSImage playImage;
+		private NSImage pauseImage;
+
 		[Export("attached")]
 		bool attached
 		{
@@ -43,6 +46,9 @@ namespace nashpati.skin
 		{
 			base.ViewDidLoad();
 
+			playImage = PlayPauseButton.Image;
+			pauseImage = PlayPauseButton.AlternateImage;
+
 			//player.Volume = VolumeSlider.FloatValue;
 		}
 
@@ -50,13 +56,22 @@ namespace nashpati.skin
 		{
 			prefs = preferences;
 			attached = prefs.AttachedToMainWindow;
-			Console.WriteLine("Preferences updated.");
 		}
 
 		public override void ViewDidDisappear()
 		{
 			PreferenceManager.Default.UnRegister(this);
 			base.ViewDidDisappear();
+		}
+
+		partial void PlayPauseButtonClicked(NSObject sender)
+		{
+			PreferenceManager.Default.GlobalPreferences.Paused = !prefs.Paused;
+
+			// Toggle play-pause icons.
+			var temp = PlayPauseButton.Image;
+			PlayPauseButton.Image = PlayPauseButton.AlternateImage;
+			PlayPauseButton.AlternateImage = temp;
 		}
 	}
 }

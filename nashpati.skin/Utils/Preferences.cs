@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 
 namespace nashpati.skin
 {
@@ -16,14 +17,28 @@ namespace nashpati.skin
 		}
 
 		private bool attachedToMainWindow = true;
+		private PlaylistItem currentPlaying;
+		private bool paused = false;
 
+		[JsonProperty("attached_to_main_window")]
 		public bool AttachedToMainWindow
 		{
 			get { return attachedToMainWindow; }
-			set
-			{
-				SetProp(ref attachedToMainWindow, value);
-			}
+			set { SetProp(ref attachedToMainWindow, value); }
+		}
+
+		[JsonProperty("current_playing")]
+		public PlaylistItem CurrentPlaying
+		{
+			get { return currentPlaying; }
+			set { SetProp(ref currentPlaying, value); }
+		}
+
+		[JsonIgnore]
+		public bool Paused
+		{
+			get { return paused; }
+			set { SetProp(ref paused, value); }
 		}
 
 		public Preferences()

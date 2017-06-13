@@ -8,7 +8,7 @@ using AVFoundation;
 
 namespace nashpati.skin
 {
-	public partial class PlayerViewController : NSViewController
+	public partial class PlayerViewController : BaseViewController
 	{
 		public static AVPlayer player;
 
@@ -29,12 +29,25 @@ namespace nashpati.skin
 								"NASHPATI_SAMPLE_VIDEO_FILE") ?? "/temp/sample.mp4"))));
 
 			PlayerView.Player = player;
-			PlayerView.Player.Play();
+			if (!base.prefs.Paused) { PlayerView.Player.Play(); }
 
 			PlayerControlsContainerView.Layer = new CoreAnimation.CALayer();
 			PlayerControlsContainerView.Layer.ZPosition = 1;
 			PlayerView.AddSubview(PlayerControlsContainerView);
 
+		}
+
+		public async override void PreferencesChanged(Preferences preferences)
+		{
+			base.PreferencesChanged(preferences);
+			if (prefs.Paused)
+			{
+				player.Pause();
+			}
+			else
+			{
+				player.Play();
+			}
 		}
 
 	}
