@@ -42,7 +42,14 @@ namespace nashpati.skin
 							Environment.GetEnvironmentVariable(
 								"NASHPATI_SAMPLE_VIDEO_FILE") ?? "/temp/sample.mp4"))));
 
+			Player = new AVPlayer();
+
 			PlayerView.Player = Player;
+			PlayerView.Player.AddPeriodicTimeObserver(CMTime.FromSeconds(1, 1), null, (obj) => {
+				// TODO: This needs to be fixed. As the private field and the prefs object are the same object,
+				// updating `At` doesn't fire the PropertyChanged event.
+				if (current != null) current.At = (uint)PlayerView.Player.CurrentTime.Seconds;
+			});
 			if (!base.prefs.Paused) { PlayerView.Player.Play(); }
 
 			PlayerControlsContainerView.Layer = new CoreAnimation.CALayer();
@@ -54,6 +61,7 @@ namespace nashpati.skin
 		public async override void PreferencesChanged(Preferences preferences)
 		{
 			base.PreferencesChanged(preferences);
+
 			if (prefs.Paused)
 			{
 				PlayerView.Player.Pause();
@@ -62,10 +70,18 @@ namespace nashpati.skin
 			{
 				PlayerView.Player.Play();
 			}
-			if (Current != preferences.CurrentPlaying)
+
+			// If the new item is null, in case the player is reset.
+			if (prefs.CurrentPlaying == null)
+			{
+				current = null;
+			}
+
+			// If the video URLs don't match and the new item is non-null.
+			if (Current?.VideoUrl != prefs.CurrentPlaying.VideoUrl)
 			{
 				current = prefs.CurrentPlaying;
-				if (Current != null && Current.IsBufferable)
+				if (Current.IsBufferable)
 				{
 					var item = new AVPlayerItem(
 							AVAsset.FromUrl(

@@ -52,7 +52,7 @@ namespace nashpati.skin
 		void Initialize()
 		{
 			WantsLayer = true;
-			Layer.BackgroundColor = new CoreGraphics.CGColor(0.2f, 0.2f, 0.2f, 0.5f);
+			//Layer.BackgroundColor = new CoreGraphics.CGColor(0.2f, 0.2f, 0.2f, 0.5f);
 		}
 
 		#endregion

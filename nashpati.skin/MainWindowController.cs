@@ -28,6 +28,8 @@ namespace nashpati.skin
 			Window.TitlebarAppearsTransparent = true;
 			Window.MovableByWindowBackground = true;
 
+			//var playerPanel = new PlayerPanelController();
+			//playerPanel.ShowWindow(this);
 
 		}
 

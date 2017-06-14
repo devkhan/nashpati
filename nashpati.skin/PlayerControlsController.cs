@@ -56,6 +56,7 @@ namespace nashpati.skin
 		{
 			prefs = preferences;
 			attached = prefs.AttachedToMainWindow;
+			PlayPauseButton.Enabled = prefs.CurrentPlaying != null;
 		}
 
 		public override void ViewDidDisappear()

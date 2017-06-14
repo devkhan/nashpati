@@ -27,12 +27,12 @@
                     <subviews>
                         <imageView id="OU9-QX-rzk">
                             <rect key="frame" x="5" y="5" width="40" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profile" id="XEQ-gn-VF1"/>
                         </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MHj-y7-XAf">
                             <rect key="frame" x="48" y="26" width="354" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Label" id="I42-0c-zw6">
                                 <font key="font" metaFont="system" size="16"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +44,7 @@
                         </textField>
                         <button id="qI8-7B-Kbx">
                             <rect key="frame" x="417" y="17" width="16" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LZp-Bi-FLf">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -52,7 +52,7 @@
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7Fz-oe-dbG">
                             <rect key="frame" x="48" y="5" width="354" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Label" id="sRd-Uq-X1W">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
