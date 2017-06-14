@@ -8,10 +8,12 @@ namespace nashpati.skin
 	{
 		private const string CellIdentifier = "ItemCell";
 		private NowPlayingTableDataSource DataSource;
+		private NSTableView Table;
 
-		public NowPlayingTableDelegate(NowPlayingTableDataSource source)
+		public NowPlayingTableDelegate(NowPlayingTableDataSource source, NSTableView table)
 		{
 			this.DataSource = source;
+			this.Table = table;
 		}
 
 		public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)

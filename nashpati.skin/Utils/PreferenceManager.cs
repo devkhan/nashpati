@@ -32,6 +32,7 @@ namespace nashpati.skin
 				//serializer.Converters.Add(new JavaScriptDateTimeConverter());
 				serializer.NullValueHandling = NullValueHandling.Include;
 				serializer.Formatting = Formatting.Indented;
+
 				using (StreamWriter sw = new StreamWriter(preferencesFileLocation.AbsolutePath))
 				{
 					using (JsonWriter writer = new JsonTextWriter(sw))

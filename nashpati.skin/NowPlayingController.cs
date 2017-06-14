@@ -46,7 +46,7 @@ namespace nashpati.skin
 			// TODO: Debug data, remove on release.
 			DummyDataUtils.playlistItems().ForEach(dataSource.Items.Add);
 			NowPlayingList.DataSource = dataSource;
-			NowPlayingList.Delegate = new NowPlayingTableDelegate(dataSource);
+			NowPlayingList.Delegate = new NowPlayingTableDelegate(dataSource, NowPlayingList);
 		}
 
 		[Export("addObject:")]

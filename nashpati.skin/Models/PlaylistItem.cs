@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 using Foundation;
 using Newtonsoft.Json;
 
 namespace nashpati.skin
 {
+	[DataContract]
 	[Register("PlaylistItem")]
 	public class PlaylistItem : NSObject
 	{
@@ -13,6 +15,7 @@ namespace nashpati.skin
 
 		[Export("Title")]
 		[JsonProperty("title")]
+		[DataMember]
 		public string Title
 		{
 			get
@@ -27,6 +30,7 @@ namespace nashpati.skin
 
 		[Export("VideoUrl")]
 		[JsonProperty("video_url")]
+		[DataMember]
 		public string VideoUrl
 		{
 			get
@@ -43,18 +47,22 @@ namespace nashpati.skin
 
 		[Export("VideoFilePath")]
 		[JsonProperty("file_path")]
+		[DataMember]
 		public string VideoFilePath { get; set; }
 
 		[Export("isBufferable")]
 		[JsonProperty("bufferable")]
+		[DataMember]
 		public bool IsBufferable { get; set; } = false;
 
 		[Export("isDownloaded")]
 		[JsonProperty("downloaded")]
+		[DataMember]
 		public bool IsDownloaded { get; set; } = false;
 
 		[Export("At")]
 		[JsonProperty("at")]
+		[DataMember]
 		public uint At { get; set; } = 0;
 
 		public PlaylistItem()

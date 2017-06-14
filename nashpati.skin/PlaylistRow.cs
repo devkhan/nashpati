@@ -67,10 +67,37 @@ namespace nashpati.skin
 			this.Item = item;
 		}
 
+		public override void MouseUp(NSEvent theEvent)
+		{
+			base.MouseUp(theEvent);
+		}
+
 		public override void MouseDown(NSEvent theEvent)
 		{
 			base.MouseDown(theEvent);
+			if (theEvent.ClickCount > 1)
+			{
+				PreferenceManager.Default.GlobalPreferences.CurrentPlaying = Item;
+				Console.WriteLine("Double click on " + Item.Title);
+			}
 			Console.WriteLine("Mouse down on " + Item.Title);
 		}
+
+		public override void MouseDragged(NSEvent theEvent)
+		{
+			base.MouseDragged(theEvent);
+		}
+
+		public override void MouseMoved(NSEvent theEvent)
+		{
+			base.MouseMoved(theEvent);
+		}
+
+		public override bool AcceptsFirstResponder()
+		{
+			return true;
+		}
+
+		
 	}
 }

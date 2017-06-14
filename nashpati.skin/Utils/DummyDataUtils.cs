@@ -11,10 +11,24 @@ namespace nashpati.skin
 			list.Add(new PlaylistItem(
 				videoUrl: "https://www.youtube.com/watch?v=nIWAQK1CnXI",
 				title: "What is a Date?",
-				filePath: ""));
-			list.Add(new PlaylistItem("https://www.youtube.com/watch?v=whwQqMMyRPU"));
-			list.Add(new PlaylistItem("https://www.youtube.com/watch?v=nEnLt3pasxE", "Neele Neele Ambar Par"));
-			list.Add(new PlaylistItem("https://www.instagram.com/p/BShYEK7AyUt/", downloaded: true));
+				downloaded: true,
+				bufferable: true,
+				filePath: Environment.GetEnvironmentVariable("TEST_VIDEOS_DIRECTORY") + "nIWAQK1CnXI.mp4"));
+			list.Add(new PlaylistItem(
+				videoUrl: "https://www.youtube.com/watch?v=whwQqMMyRPU",
+				downloaded: true,
+				bufferable: true,
+				filePath: Environment.GetEnvironmentVariable("TEST_VIDEOS_DIRECTORY") + "whwQqMMyRPU.mp4"));
+			list.Add(new PlaylistItem(
+				videoUrl: "https://www.youtube.com/watch?v=nEnLt3pasxE",
+				title: "Neele Neele Ambar Par",
+				downloaded: true,
+				bufferable: true,
+				filePath: Environment.GetEnvironmentVariable("TEST_VIDEOS_DIRECTORY") + "nEnLt3pasxE.webm"));
+			list.Add(new PlaylistItem(
+				videoUrl: "https://www.instagram.com/p/BShYEK7AyUt/",
+				downloaded: false,
+				bufferable: false));
 			return list;
 		}
 	}

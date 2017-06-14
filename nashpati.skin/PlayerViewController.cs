@@ -63,12 +63,13 @@ namespace nashpati.skin
 			}
 			if (Current != null && Current.IsBufferable)
 			{
-				Player = new AVPlayer(
+				var player = new AVPlayer(
 					new AVPlayerItem(
 						AVAsset.FromUrl(
 							NSUrl.FromFilename(Current.VideoFilePath))));
-				Player.Seek(CMTime.FromSeconds(Current.At, 1));
-				PlayerView.Player = Player;
+				player.Seek(CMTime.FromSeconds(Current.At, 1));
+				PlayerView.Player = player;
+				PlayerView.Player.Play();
 			}
 		}
 

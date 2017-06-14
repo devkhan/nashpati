@@ -23,6 +23,7 @@ namespace nashpati.skin
 			base.WindowDidLoad();
 			PlayerPanel = (NSPanel)Window;
 
+			PlayerPanel.StyleMask = NSWindowStyle.Borderless;
 			PlayerPanel.MovableByWindowBackground = true;
 
 			if (prefs.AttachedToMainWindow)
