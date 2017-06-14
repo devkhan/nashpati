@@ -14,6 +14,16 @@ namespace nashpati.skin
 
 		public PlayerPanelController (IntPtr handle) : base (handle)
 		{
+			Initialize();
+		}
+
+		public PlayerPanelController() : base()
+		{
+			Initialize();
+		}
+
+		void Initialize()
+		{
 			PreferenceManager.Default.Register(this);
 			prefs = PreferenceManager.Default.GlobalPreferences;
 		}

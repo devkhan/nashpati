@@ -11,13 +11,14 @@ namespace nashpati.skin
 {
 	public partial class PlayerViewController : BaseViewController
 	{
+		private PlaylistItem current;
 		public static AVPlayer Player;
 
 		public PlaylistItem Current
 		{
 			get
 			{
-				return prefs.CurrentPlaying;
+				return current;
 			}
 			set
 			{
@@ -55,21 +56,24 @@ namespace nashpati.skin
 			base.PreferencesChanged(preferences);
 			if (prefs.Paused)
 			{
-				Player.Pause();
+				PlayerView.Player.Pause();
 			}
 			else
 			{
-				Player.Play();
-			}
-			if (Current != null && Current.IsBufferable)
-			{
-				var player = new AVPlayer(
-					new AVPlayerItem(
-						AVAsset.FromUrl(
-							NSUrl.FromFilename(Current.VideoFilePath))));
-				player.Seek(CMTime.FromSeconds(Current.At, 1));
-				PlayerView.Player = player;
 				PlayerView.Player.Play();
+			}
+			if (Current != preferences.CurrentPlaying)
+			{
+				current = prefs.CurrentPlaying;
+				if (Current != null && Current.IsBufferable)
+				{
+					var item = new AVPlayerItem(
+							AVAsset.FromUrl(
+								NSUrl.FromFilename(Current.VideoFilePath)));
+					PlayerView.Player.ReplaceCurrentItemWithPlayerItem(item);
+					PlayerView.Player.Seek(CMTime.FromSeconds(Current.At, 1));
+					PlayerView.Player.Play();
+				}
 			}
 		}
 

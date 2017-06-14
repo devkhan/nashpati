@@ -7,13 +7,15 @@ using AppKit;
 
 namespace nashpati.skin
 {
-	public partial class MainWindowController : NSWindowController
+	public partial class MainWindowController : NSWindowController, IPreferencesListener
 	{
+		private static Preferences prefs;
 		public static NSWindow MainWindow { get; private set; }
 
 		public MainWindowController (IntPtr handle) : base (handle)
 		{
-
+			PreferenceManager.Default.Register(this);
+			prefs = PreferenceManager.Default.GlobalPreferences;
 		}
 
 		public override void WindowDidLoad()
@@ -25,6 +27,14 @@ namespace nashpati.skin
 			Window.TitleVisibility = NSWindowTitleVisibility.Hidden;
 			Window.TitlebarAppearsTransparent = true;
 			Window.MovableByWindowBackground = true;
+
+
+		}
+
+		public void PreferencesChanged(Preferences preferences)
+		{
+			prefs = preferences;
+
 		}
 	}
 }
