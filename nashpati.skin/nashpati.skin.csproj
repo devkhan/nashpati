@@ -198,6 +198,10 @@
     </Compile>
     <Compile Include="NowPlayingTableDataSource.cs" />
     <Compile Include="NowPlayingTableDelegate.cs" />
+    <Compile Include="AddNewController.cs" />
+    <Compile Include="AddNewController.designer.cs">
+      <DependentUpon>AddNewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

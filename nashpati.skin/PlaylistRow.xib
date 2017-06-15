@@ -19,11 +19,11 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView misplaced="YES" id="2">
             <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" misplaced="YES" id="Akz-63-iUL">
                     <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView id="OU9-QX-rzk">
                             <rect key="frame" x="5" y="5" width="40" height="40"/>

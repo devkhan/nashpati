@@ -64,9 +64,10 @@
                                         <menuItem title="Open URL..." id="XcJ-9H-kmr">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="Add to Now Playing" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <segue destination="Nzu-oV-J5e" kind="modal" id="kTZ-G8-mgQ"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
@@ -630,6 +631,60 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
+        <!--Add new URL to Now Playing-->
+        <scene sceneID="pTJ-3h-eTo">
+            <objects>
+                <viewController title="Add new URL to Now Playing" id="Nzu-oV-J5e" customClass="AddNewController" sceneMemberID="viewController">
+                    <view key="view" id="9t0-bC-HEg">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="62"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wjg-WF-92I">
+                                <rect key="frame" x="20" y="20" width="321" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="08h-v9-QEu"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ksk-vW-tKm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="UrlInputAction:" target="Nzu-oV-J5e" id="H9W-Bq-jj8"/>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ofF-HZ-3R1">
+                                <rect key="frame" x="355" y="13" width="81" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="KDd-TA-dX8"/>
+                                    <constraint firstAttribute="height" constant="21" id="d8U-c7-c7F"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0w2-Wh-Hzl">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="AddClicked:" target="Nzu-oV-J5e" id="S00-Vy-61D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wjg-WF-92I" firstAttribute="centerY" secondItem="9t0-bC-HEg" secondAttribute="centerY" id="Cx3-Q1-5dk"/>
+                            <constraint firstAttribute="trailing" secondItem="ofF-HZ-3R1" secondAttribute="trailing" constant="20" id="bqP-t9-aoi"/>
+                            <constraint firstItem="ofF-HZ-3R1" firstAttribute="centerY" secondItem="9t0-bC-HEg" secondAttribute="centerY" id="dso-pI-PPt"/>
+                            <constraint firstItem="wjg-WF-92I" firstAttribute="leading" secondItem="9t0-bC-HEg" secondAttribute="leading" constant="20" id="pkF-uh-cfy"/>
+                            <constraint firstItem="ofF-HZ-3R1" firstAttribute="leading" secondItem="wjg-WF-92I" secondAttribute="trailing" constant="20" id="wMX-q7-BXz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AddButton" destination="ofF-HZ-3R1" id="8nj-q8-P6L"/>
+                        <outlet property="UrlInput" destination="wjg-WF-92I" id="Jfd-oG-uog"/>
+                    </connections>
+                </viewController>
+                <customObject id="wT5-e9-fc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-506" y="216"/>
+        </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
@@ -865,7 +920,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="50" viewBased="YES" id="FTa-2Z-jcq">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="50" viewBased="YES" id="FTa-2Z-jcq">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

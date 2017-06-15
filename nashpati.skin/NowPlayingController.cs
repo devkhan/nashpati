@@ -47,26 +47,28 @@ namespace nashpati.skin
 			DummyDataUtils.playlistItems().ForEach(dataSource.Items.Add);
 			NowPlayingList.DataSource = dataSource;
 			NowPlayingList.Delegate = new NowPlayingTableDelegate(dataSource, NowPlayingList);
+			NSNotificationCenter.DefaultCenter.AddObserver(new NSString("NewUrlAdded"), AddToPlaylist);
+			
 		}
 
 		[Export("addObject:")]
-		public void AddPerson(PlaylistItem person)
+		public void AddItem(PlaylistItem item)
 		{
 			WillChangeValue("playlistItemArray");
-			_playlist.Add(person);
+			_playlist.Add(item);
 			DidChangeValue("playlistItemArray");
 		}
 
 		[Export("insertObject:inPlaylistItemArrayAtIndex:")]
-		public void InsertPerson(PlaylistItem person, nint index)
+		public void InsertItem(PlaylistItem item, nint index)
 		{
 			WillChangeValue("playlistItemArray");
-			_playlist.Insert(person, index);
+			_playlist.Insert(item, index);
 			DidChangeValue("playlistItemArray");
 		}
 
 		[Export("removeObjectFromPlaylistItemArrayAtIndex:")]
-		public void RemovePerson(nint index)
+		public void RemoveItem(nint index)
 		{
 			WillChangeValue("playlistItemArray");
 			_playlist.RemoveObject(index);
@@ -74,7 +76,7 @@ namespace nashpati.skin
 		}
 
 		[Export("setPlaylistItemArray:")]
-		public void SetPeople(NSMutableArray array)
+		public void SetPlaylist(NSMutableArray array)
 		{
 			WillChangeValue("playlistItemArray");
 			_playlist = array;
@@ -84,6 +86,20 @@ namespace nashpati.skin
 		public override void PreferencesChanged(Preferences preferences)
 		{
 			base.PreferencesChanged(preferences);
+		}
+
+		public override void PrepareForSegue(NSStoryboardSegue segue, NSObject sender)
+		{
+			base.PrepareForSegue(segue, sender);
+			Console.WriteLine("PrepareForSegue");
+		}
+
+		public void AddToPlaylist(NSNotification notif)
+		{
+			Console.WriteLine("URL recieved: " + notif.Object);
+			// TODO: Check if site is supported, and also support filesystem URIs.
+			((NowPlayingTableDataSource)NowPlayingList.DataSource).Items.Add(new PlaylistItem(videoUrl: notif.Object.ToString()));
+			NowPlayingList.ReloadData();
 		}
 
 	}
