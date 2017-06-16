@@ -20,6 +20,9 @@ namespace nashpati.skin
 		{
 			PlaylistRow playlistRow = new PlaylistRow();
 			playlistRow.SetPlaylistItem(DataSource.Items[(int)row]);
+			var frame = playlistRow.Frame;
+			frame.Width = tableView.Frame.Width;
+			playlistRow.Frame = frame;
 			return playlistRow;
 		}
 	}

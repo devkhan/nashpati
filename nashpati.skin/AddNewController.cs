@@ -29,7 +29,7 @@ namespace nashpati.skin
 		{
 			var url = UrlInput.StringValue;
 			Console.WriteLine("URL: " + url);
-			if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
+			if (Uri.IsWellFormedUriString(url, UriKind.Absolute) && Sources.IsUrlSupported(url))
 			{
 				// TODO: Add better URL validation;
 				NSNotificationCenter.DefaultCenter.PostNotificationName(new NSString("NewUrlAdded"), new NSString(url));

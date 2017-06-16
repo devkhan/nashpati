@@ -46,6 +46,18 @@ namespace nashpati.skin
 			NSBundle.MainBundle.LoadNibNamed("PlaylistRow", this, out array);
 			AddSubview(RootView);
 			Initialize();
+
+			switch (Item?.Status)
+			{
+				case PlaylitItemStatus.PENDING:
+					break;
+
+				case PlaylitItemStatus.DOWNLOADING:
+					break;
+
+				case PlaylitItemStatus.DONE:
+					break;
+			}
 		}
 
 		// Shared initialization code

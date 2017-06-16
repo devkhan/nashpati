@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -17,22 +17,26 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView misplaced="YES" id="2">
+        <customView id="2">
             <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <view horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" misplaced="YES" id="Akz-63-iUL">
+                <view horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Akz-63-iUL">
                     <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView id="OU9-QX-rzk">
+                        <imageView translatesAutoresizingMaskIntoConstraints="NO" id="OU9-QX-rzk">
                             <rect key="frame" x="5" y="5" width="40" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="GCd-mS-pqJ"/>
+                                <constraint firstAttribute="width" constant="40" id="VfR-MY-eq7"/>
+                            </constraints>
                             <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profile" id="XEQ-gn-VF1"/>
                         </imageView>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MHj-y7-XAf">
-                            <rect key="frame" x="48" y="26" width="354" height="19"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MHj-y7-XAf">
+                            <rect key="frame" x="48" y="26" width="44" height="19"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="19" id="C5V-yh-UZu"/>
+                            </constraints>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Label" id="I42-0c-zw6">
                                 <font key="font" metaFont="system" size="16"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -42,17 +46,22 @@
                                 <binding destination="-2" name="value" keyPath="self.item.Title" id="Y3O-PX-2a0"/>
                             </connections>
                         </textField>
-                        <button id="qI8-7B-Kbx">
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="qI8-7B-Kbx">
                             <rect key="frame" x="417" y="17" width="16" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="Ce0-M2-ZUg"/>
+                                <constraint firstAttribute="width" constant="16" id="tFV-1R-Dn0"/>
+                            </constraints>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="InfoIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LZp-Bi-FLf">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7Fz-oe-dbG">
-                            <rect key="frame" x="48" y="5" width="354" height="17"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-oe-dbG">
+                            <rect key="frame" x="48" y="5" width="37" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="A7C-pV-HOO"/>
+                            </constraints>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Label" id="sRd-Uq-X1W">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -63,8 +72,24 @@
                             </connections>
                         </textField>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="7Fz-oe-dbG" firstAttribute="leading" secondItem="OU9-QX-rzk" secondAttribute="trailing" constant="5" id="1aC-Vp-wPe"/>
+                        <constraint firstAttribute="trailing" secondItem="qI8-7B-Kbx" secondAttribute="trailing" constant="17" id="D3u-PD-CYz"/>
+                        <constraint firstItem="OU9-QX-rzk" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="Wmh-Zc-0Dn"/>
+                        <constraint firstItem="OU9-QX-rzk" firstAttribute="leading" secondItem="Akz-63-iUL" secondAttribute="leading" constant="5" id="b66-DO-KbD"/>
+                        <constraint firstItem="MHj-y7-XAf" firstAttribute="leading" secondItem="OU9-QX-rzk" secondAttribute="trailing" constant="5" id="kYv-E5-7yR"/>
+                        <constraint firstItem="qI8-7B-Kbx" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="l6D-pd-kgd"/>
+                        <constraint firstAttribute="bottom" secondItem="7Fz-oe-dbG" secondAttribute="bottom" constant="5" id="mNa-zX-CE2"/>
+                        <constraint firstItem="MHj-y7-XAf" firstAttribute="top" secondItem="Akz-63-iUL" secondAttribute="top" constant="5" id="oBM-3c-Vy7"/>
+                    </constraints>
                 </view>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Akz-63-iUL" secondAttribute="trailing" id="DBM-N4-Bjc"/>
+                <constraint firstAttribute="bottom" secondItem="Akz-63-iUL" secondAttribute="bottom" id="JVt-y3-ooU"/>
+                <constraint firstItem="Akz-63-iUL" firstAttribute="top" secondItem="2" secondAttribute="top" id="NFe-d2-RVH"/>
+                <constraint firstItem="Akz-63-iUL" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="mgY-j1-PGB"/>
+            </constraints>
             <point key="canvasLocation" x="129" y="66"/>
         </customView>
     </objects>

@@ -202,6 +202,7 @@
     <Compile Include="AddNewController.designer.cs">
       <DependentUpon>AddNewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Sources.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

@@ -6,6 +6,13 @@ using Newtonsoft.Json;
 
 namespace nashpati.skin
 {
+	public enum PlaylitItemStatus
+	{
+		PENDING,
+		DOWNLOADING,
+		DONE
+	}
+
 	[DataContract]
 	[Register("PlaylistItem")]
 	public class PlaylistItem : NSObject
@@ -65,17 +72,22 @@ namespace nashpati.skin
 		[DataMember]
 		public uint At { get; set; } = 0;
 
+		[JsonProperty("status")]
+		[DataMember]
+		public PlaylitItemStatus Status { get; private set; } = PlaylitItemStatus.PENDING;
+
 		public PlaylistItem()
 		{
 		}
 
-		public PlaylistItem(string videoUrl, string title = null, bool bufferable = false, bool downloaded = false, string filePath = "")
+		public PlaylistItem(string videoUrl, string title = null, bool bufferable = false, bool downloaded = false, string filePath = "", PlaylitItemStatus status = PlaylitItemStatus.PENDING)
 		{
 			this.VideoUrl = videoUrl;
 			this.Title = title;
 			this.IsBufferable = bufferable;
 			this.IsDownloaded = downloaded;
 			this.VideoFilePath = filePath;
+			this.Status = status;
 		}
 	}
 }
