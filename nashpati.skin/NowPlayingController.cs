@@ -44,7 +44,8 @@ namespace nashpati.skin
 			var dataSource = new NowPlayingTableDataSource();
 
 			// TODO: Debug data, remove on release.
-			DummyDataUtils.playlistItems().ForEach(dataSource.Items.Add);
+			//DummyDataUtils.playlistItems().ForEach(dataSource.Items.Add);
+
 			NowPlayingList.DataSource = dataSource;
 			NowPlayingList.Delegate = new NowPlayingTableDelegate(dataSource, NowPlayingList);
 			NSNotificationCenter.DefaultCenter.AddObserver(new NSString("NewUrlAdded"), AddToPlaylist);
@@ -97,10 +98,10 @@ namespace nashpati.skin
 		public void AddToPlaylist(NSNotification notif)
 		{
 			Console.WriteLine("URL recieved: " + notif.Object);
-			// TODO: Check if site is supported, and also support filesystem URIs.
+			// TODO: ~~Check if site is supported, and~~ also support filesystem URIs.
+			var count = ((NowPlayingTableDataSource)NowPlayingList.DataSource).Items.Count;
 			((NowPlayingTableDataSource)NowPlayingList.DataSource).Items.Add(new PlaylistItem(videoUrl: notif.Object.ToString()));
-			NowPlayingList.ReloadData();
+			NowPlayingList.InsertRows(new NSIndexSet(count), NSTableViewAnimation.SlideUp);
 		}
-
 	}
 }

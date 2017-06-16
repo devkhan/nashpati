@@ -8,9 +8,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PlaylistRow">
             <connections>
+                <outlet property="DownloadSpinner" destination="gxh-JJ-d36" id="pVW-P7-y2f"/>
                 <outlet property="InfoButton" destination="qI8-7B-Kbx" id="lnT-BN-ePT"/>
                 <outlet property="PlaylistItemThumbnail" destination="OU9-QX-rzk" id="HKS-ls-yid"/>
                 <outlet property="RootView" destination="2" id="bRr-e0-5fX"/>
+                <outlet property="Spinner" destination="ybL-ye-Mum" id="c8K-Ha-HY0"/>
                 <outlet property="TitleLabel" destination="MHj-y7-XAf" id="8zc-QS-Upo"/>
                 <outlet property="UrlLabel" destination="7Fz-oe-dbG" id="G7k-6g-BiT"/>
             </connections>
@@ -24,13 +26,13 @@
                 <view horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Akz-63-iUL">
                     <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
                     <subviews>
-                        <imageView translatesAutoresizingMaskIntoConstraints="NO" id="OU9-QX-rzk">
+                        <imageView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-QX-rzk">
                             <rect key="frame" x="5" y="5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="GCd-mS-pqJ"/>
                                 <constraint firstAttribute="width" constant="40" id="VfR-MY-eq7"/>
                             </constraints>
-                            <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profile" id="XEQ-gn-VF1"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="profile" id="XEQ-gn-VF1"/>
                         </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MHj-y7-XAf">
                             <rect key="frame" x="48" y="26" width="44" height="19"/>
@@ -46,7 +48,7 @@
                                 <binding destination="-2" name="value" keyPath="self.item.Title" id="Y3O-PX-2a0"/>
                             </connections>
                         </textField>
-                        <button translatesAutoresizingMaskIntoConstraints="NO" id="qI8-7B-Kbx">
+                        <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qI8-7B-Kbx">
                             <rect key="frame" x="417" y="17" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="Ce0-M2-ZUg"/>
@@ -71,12 +73,30 @@
                                 <binding destination="-2" name="value" keyPath="self.item.VideoUrl" id="DX4-kp-Z3q"/>
                             </connections>
                         </textField>
+                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ybL-ye-Mum">
+                            <rect key="frame" x="17" y="17" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="NYh-Ej-A3X"/>
+                                <constraint firstAttribute="width" constant="16" id="OZJ-e6-FEU"/>
+                            </constraints>
+                        </progressIndicator>
+                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="gxh-JJ-d36">
+                            <rect key="frame" x="417" y="17" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="R0z-nT-jPz"/>
+                                <constraint firstAttribute="height" constant="16" id="xhJ-IV-vZm"/>
+                            </constraints>
+                        </progressIndicator>
                     </subviews>
                     <constraints>
                         <constraint firstItem="7Fz-oe-dbG" firstAttribute="leading" secondItem="OU9-QX-rzk" secondAttribute="trailing" constant="5" id="1aC-Vp-wPe"/>
+                        <constraint firstAttribute="trailing" secondItem="gxh-JJ-d36" secondAttribute="trailing" constant="17" id="2ih-8E-WcE"/>
+                        <constraint firstItem="gxh-JJ-d36" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="2zj-hn-Gqd"/>
                         <constraint firstAttribute="trailing" secondItem="qI8-7B-Kbx" secondAttribute="trailing" constant="17" id="D3u-PD-CYz"/>
+                        <constraint firstItem="ybL-ye-Mum" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="Ryo-Pr-Mva"/>
                         <constraint firstItem="OU9-QX-rzk" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="Wmh-Zc-0Dn"/>
                         <constraint firstItem="OU9-QX-rzk" firstAttribute="leading" secondItem="Akz-63-iUL" secondAttribute="leading" constant="5" id="b66-DO-KbD"/>
+                        <constraint firstItem="ybL-ye-Mum" firstAttribute="leading" secondItem="Akz-63-iUL" secondAttribute="leading" constant="17" id="gEe-gx-xhJ"/>
                         <constraint firstItem="MHj-y7-XAf" firstAttribute="leading" secondItem="OU9-QX-rzk" secondAttribute="trailing" constant="5" id="kYv-E5-7yR"/>
                         <constraint firstItem="qI8-7B-Kbx" firstAttribute="centerY" secondItem="Akz-63-iUL" secondAttribute="centerY" id="l6D-pd-kgd"/>
                         <constraint firstAttribute="bottom" secondItem="7Fz-oe-dbG" secondAttribute="bottom" constant="5" id="mNa-zX-CE2"/>

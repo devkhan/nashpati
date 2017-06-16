@@ -9,8 +9,10 @@ namespace nashpati.skin
 	public enum PlaylitItemStatus
 	{
 		PENDING,
+		NOT_DOWNLOADED,
 		DOWNLOADING,
-		DONE
+		DONE,
+		ERRORED
 	}
 
 	[DataContract]
@@ -19,6 +21,10 @@ namespace nashpati.skin
 	{
 		string _title = null;
 		Uri _video_url = null;
+
+		[JsonProperty("id")]
+		[DataMember]
+		public int? Id { get; set; } = null;
 
 		[Export("Title")]
 		[JsonProperty("title")]
@@ -58,14 +64,10 @@ namespace nashpati.skin
 		public string VideoFilePath { get; set; }
 
 		[Export("isBufferable")]
-		[JsonProperty("bufferable")]
-		[DataMember]
-		public bool IsBufferable { get; set; } = false;
+		public bool IsBufferable { get { return !string.IsNullOrEmpty(VideoFilePath); } }
 
 		[Export("isDownloaded")]
-		[JsonProperty("downloaded")]
-		[DataMember]
-		public bool IsDownloaded { get; set; } = false;
+		public bool IsDownloaded { get { return Status == PlaylitItemStatus.DONE; } }
 
 		[Export("At")]
 		[JsonProperty("at")]
@@ -74,18 +76,19 @@ namespace nashpati.skin
 
 		[JsonProperty("status")]
 		[DataMember]
-		public PlaylitItemStatus Status { get; private set; } = PlaylitItemStatus.PENDING;
+		public PlaylitItemStatus Status { get; set; } = PlaylitItemStatus.PENDING;
+
+		public string FormatId { get; set; }
 
 		public PlaylistItem()
 		{
 		}
 
-		public PlaylistItem(string videoUrl, string title = null, bool bufferable = false, bool downloaded = false, string filePath = "", PlaylitItemStatus status = PlaylitItemStatus.PENDING)
+		public PlaylistItem(string videoUrl, int? id = null, string title = null, string filePath = "", PlaylitItemStatus status = PlaylitItemStatus.PENDING)
 		{
+			this.Id = id;
 			this.VideoUrl = videoUrl;
 			this.Title = title;
-			this.IsBufferable = bufferable;
-			this.IsDownloaded = downloaded;
 			this.VideoFilePath = filePath;
 			this.Status = status;
 		}

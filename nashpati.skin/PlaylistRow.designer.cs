@@ -13,6 +13,9 @@ namespace nashpati.skin
 	partial class PlaylistRow
 	{
 		[Outlet]
+		AppKit.NSProgressIndicator DownloadSpinner { get; set; }
+
+		[Outlet]
 		AppKit.NSButton InfoButton { get; set; }
 
 		[Outlet]
@@ -20,6 +23,9 @@ namespace nashpati.skin
 
 		[Outlet]
 		AppKit.NSView RootView { get; set; }
+
+		[Outlet]
+		AppKit.NSProgressIndicator Spinner { get; set; }
 
 		[Outlet]
 		AppKit.NSTextField TitleLabel { get; set; }
@@ -39,6 +45,11 @@ namespace nashpati.skin
 				PlaylistItemThumbnail = null;
 			}
 
+			if (RootView != null) {
+				RootView.Dispose ();
+				RootView = null;
+			}
+
 			if (TitleLabel != null) {
 				TitleLabel.Dispose ();
 				TitleLabel = null;
@@ -49,9 +60,14 @@ namespace nashpati.skin
 				UrlLabel = null;
 			}
 
-			if (RootView != null) {
-				RootView.Dispose ();
-				RootView = null;
+			if (Spinner != null) {
+				Spinner.Dispose ();
+				Spinner = null;
+			}
+
+			if (DownloadSpinner != null) {
+				DownloadSpinner.Dispose ();
+				DownloadSpinner = null;
 			}
 		}
 	}

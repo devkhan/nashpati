@@ -50,22 +50,22 @@ namespace nashpati.skin
 		async Task DownloadVideo(string url)
 		{
 			video = await api.SubmitVideo("{\"url\":\"" + url + "\"}");
-			while (video.status != 3)
+			while (video.Status != 3)
 			{
-				video = await api.GetVideoInfo(video.id);
+				video = await api.GetVideoInfo(video.Id);
 				await Task.Delay(1000);
 			}
 			var format_id = "22";
 			if (url.Contains("vimeo")) format_id = "http-540p";
-			format = await api.StartDownload(video.id, format_id);
-			while (format.status != -2)
+			format = await api.StartDownload(video.Id, format_id);
+			while (format.Status != -2)
 			{
-				format = await api.GetDownlaod(video.id, format.format_id);
+				format = await api.GetDownlaod(video.Id, format.FormatId);
 				await Task.Delay(1000);
 			}
 			ProgressBar.Hidden = true;
 			PlayerView.Hidden = false;
-			PlayerView.Player = new AVPlayer(new AVPlayerItem(AVAsset.FromUrl(NSUrl.FromFilename(format.location))));
+			PlayerView.Player = new AVPlayer(new AVPlayerItem(AVAsset.FromUrl(NSUrl.FromFilename(format.Location))));
 
 			PlayerView.Player.Play();
 		}
