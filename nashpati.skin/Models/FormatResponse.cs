@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace nashpati.skin
 {
 	public class FormatResponse
@@ -7,11 +10,25 @@ namespace nashpati.skin
 		{
 		}
 
-		public int? downloaded_bytes { get; set; }
-		public string format_id { get; set; }
-		public string location { get; set; }
-		public int status { get; set; }
-		public int? total_bytes { get; set; }
-		public string video_url { get; set; }
+		[JsonProperty("downloaded_bytes")]
+		public int? DownloadedBytes { get; set; }
+
+		[JsonProperty("format_id")]
+		public string FormatId { get; set; }
+
+		[JsonProperty("location")]
+		public string Location { get; set; }
+
+		[JsonProperty("status")]
+		public int Status { get; set; }
+
+		[JsonProperty("total_bytes")]
+		public int? TotalBytes { get; set; }
+
+		[JsonProperty("video_url")]
+		public string VideoUrl { get; set; }
+
+		[JsonProperty("extra")]
+		public Dictionary<string, object> Extra;
 	}
 }
